@@ -7,11 +7,13 @@ import { CREDENTIAL_STATUS } from '../constants/credentials';
 
 const redisUrl = process.env.REDIS_URL ?? 'localhost';
 const redisPort = Number(process.env.REDIS_PORT ?? '6379');
+const redisPassword = process.env.REDIS_PASSWORD ?? '';
 
 // redis settings...
 const connection = {
     host: redisUrl,
     port: redisPort,
+    password: redisPassword
 };
 
 type AugmentedQueue<T> = Queue<T> & {
