@@ -20,21 +20,22 @@ services:
     container_name: "ad-payload"
     depends_on: 
       - coordinator
-      - redis
-      - mongo
+      # - redis
+      # - mongo
     environment:
-      - COORDINATOR_URL=http://coordinator:4005
-      - REDIS_URL=redis
-      - REDIS_PORT=6379
-      - MONGODB_URI=mongodb://root:example@mongo:27017/
-      - PAYLOAD_SECRET=aaaaaaaaaaaaaaaaaaaaaaaa
-      - TENANT_NAME=lef_test
-      - SMTP_HOST=somehost
-      - SMTP_USER=somename
-      - SMTP_PASS=somepass
-      - EMAIL_FROM=Digital Credentials Consortium <someone@mit.edu>
-      - CLAIM_PAGE_URL=http://localhost:8080
-      - PAYLOAD_PUBLIC_SERVER_URL=http://localhost:3000
+      - COORDINATOR_URL=${COORDINATOR_URL}
+      - REDIS_URL=${REDIS_URL}
+      - REDIS_PORT=${REDIS_PORT}
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - MONGODB_URI=${MONGODB_URI}
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+      - TENANT_NAME=${TENANT_NAME}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - CLAIM_PAGE_URL=${CLAIM_PAGE_URL}
+      - PAYLOAD_PUBLIC_SERVER_URL=${PAYLOAD_PUBLIC_SERVER_URL}
     ports:
       - "3000:3000"
     volumes:
@@ -46,17 +47,17 @@ services:
       - payload
     ports:
       - "8080:8080"
-  redis:
-    image: redis:alpine
-    container_name: ad-redis
-    environment:
-      - ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD:-yes}
-    ports:
-      - "6379:6379"
-  mongo:
-    image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+  # redis:
+  #   image: redis:alpine
+  #   container_name: ad-redis
+  #   environment:
+  #     - ALLOW_EMPTY_PASSWORD=${ALLOW_EMPTY_PASSWORD:-yes}
+  #   ports:
+  #     - "6379:6379"
+  # mongo:
+  #   image: mongo
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: example
 volumes:
   transactions:
