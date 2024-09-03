@@ -37,7 +37,7 @@ services:
       - CLAIM_PAGE_URL=${CLAIM_PAGE_URL}
       - PAYLOAD_PUBLIC_SERVER_URL=${PAYLOAD_PUBLIC_SERVER_URL}
     ports:
-      - "3000:3000"
+      - "5000:5000"
     volumes:
       - ./src:/home/node/app/src
   claim-page:

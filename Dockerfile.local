@@ -7,6 +7,6 @@ COPY . .
 RUN npm i -g pnpm
 RUN pnpm i
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["pnpm", "dev"]

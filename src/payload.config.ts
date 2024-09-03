@@ -47,7 +47,7 @@ export default buildConfig({
         fromName: 'DCC',
         fromAddress: 'chartraj@mit.edu',
     },
-    serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:3000',
+    serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'http://localhost:5000',
     cors: '*',
     admin: {
         css: require.resolve('./components/global.scss'),
