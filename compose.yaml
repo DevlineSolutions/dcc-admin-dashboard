@@ -16,7 +16,7 @@ services:
   payload:
     build: 
       context: .
-      dockerfile: Dockerfile.local
+      dockerfile: Dockerfile
     container_name: "ad-payload"
     depends_on: 
       - coordinator
