@@ -3,7 +3,7 @@ services:
     image: digitalcredentials/workflow-coordinator:0.1.0
     environment:
       - ENABLE_STATUS_SERVICE=false
-      - PUBLIC_EXCHANGE_HOST=http://localhost:3000/api 
+      - PUBLIC_EXCHANGE_HOST=http://localhost:5000/api 
       - TENANT_TOKEN_LEF_TEST=UNPROTECTED
     ports:
       - "4005:4005"
